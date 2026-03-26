@@ -143,10 +143,52 @@ app.get('/algemeen-nieuws-oud-nieuw', async function (request, response) {
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
-app.post('/', async function (request, response) {
-  // Je zou hier data kunnen opslaan, of veranderen, of wat je maar wilt
-  // Er is nog geen afhandeling van een POST, dus stuur de bezoeker terug naar /
-  response.redirect(303, '/')
+app.post('/collectie', async function (request, response) {
+
+  // Stuur een POST request naar de messages database
+  // Een POST request bevat ook extra parameters, naast een URL
+  await fetch('https://fdnd-agency.directus.app/items/buurtcampuskrant_saved_stories', {
+
+    // overschrijf de standaard GET method
+    method: 'POST',
+
+    // geef de body mee als JSON string
+    body: JSON.stringify({
+      // Dit is zodat we ons artikel straks weer terug kunnen vinden met ons filter
+      for: 'buurtcampus_collectie',
+      // En dit is ons eerdere formulierveld
+      cover: request.body.cover,
+      title: request.body.title,
+      date: request.body.date,
+      id: request.body.id
+    }),
+
+    // En vergeet deze HTTP headers niet: hiermee vertellen we de server dat we JSON doorsturen
+    // (In realistischere projecten zou je hier ook authentication headers of een sleutel meegeven)
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    }
+  
+  })
+
+  // zonder redirect wordt in de browser niets geplaats, alleen in directus
+  response.redirect('/collectie')
+
+})
+
+app.get('/collectie', async function (request, response) {
+
+    // Haal eerst de opgeslagen story-IDs op
+    const savedRes = await fetch('https://fdnd-agency.directus.app/items/buurtcampuskrant_saved_stories?fields=story')
+    const savedData = await savedRes.json()
+
+    // Haal de bijbehorende story details op via de IDs
+    const ids = savedData.data.map(item => item.story).join(',')
+
+    const storiesRes = await fetch(`https://fdnd-agency.directus.app/items/buurtcampuskrant_stories?filter[id][_in]=${ids}&fields=id,title,date,cover.id`)
+    const storiesData = await storiesRes.json()
+
+    response.render('collectie', { stories: storiesData.data })
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
