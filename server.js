@@ -188,7 +188,7 @@ app.get('/collectie', async function (request, response) {
     const storiesRes = await fetch(`https://fdnd-agency.directus.app/items/buurtcampuskrant_stories?filter[id][_in]=${ids}&fields=id,title,date,cover.id`)
     const storiesData = await storiesRes.json()
 
-    response.render('collectie', { stories: storiesData.data })
+    response.render('collectie.liquid', { stories: storiesData.data })
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren

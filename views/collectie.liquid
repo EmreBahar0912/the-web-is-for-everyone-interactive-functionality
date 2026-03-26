@@ -1,5 +1,6 @@
 <h1>Collectie</h1>
 
+{% for story in stories %}
 <img src="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}" alt="">
 <h2>{{ story.title }}</h2>
 <time>
@@ -8,3 +9,4 @@
         <span>{{ story.date }}</span>
     </div>
 </time>
+{% endfor %}
