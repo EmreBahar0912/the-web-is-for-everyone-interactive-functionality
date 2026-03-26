@@ -42,14 +42,17 @@ app.get('/', async function (request, response) {
    // Geef hier eventueel data aan mee
    const params = {
     'filter[district]': 'algemeen',
-    'fields': 'title, intro, date, cover.*'
+    'fields': 'id, title, intro, date,cover.*'
   }
 
   const apiURL = 'https://fdnd-agency.directus.app/items/buurtcampuskrant_stories?' + new URLSearchParams(params)
   // console.log(apiURL)
+  // console.log('API URL:', apiURL)
 
   const apiResponse = await fetch(apiURL)
   const apiResponseJSON = await apiResponse.json()
+
+  console.log('Eerste story:', apiResponseJSON.data[0])
   // console.log(personResponseJSON.data)
    response.render('index.liquid', {stories: apiResponseJSON.data})
 })
@@ -144,10 +147,11 @@ app.get('/algemeen-nieuws-oud-nieuw', async function (request, response) {
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
 app.post('/collectie', async function (request, response) {
+  console.log('POST ontvangen:', request.body)
 
   // Stuur een POST request naar de messages database
   // Een POST request bevat ook extra parameters, naast een URL
-  await fetch('https://fdnd-agency.directus.app/items/buurtcampuskrant_saved_stories', {
+  const fetchRes = await fetch('https://fdnd-agency.directus.app/items/buurtcampuskrant_saved_stories', {
 
     // overschrijf de standaard GET method
     method: 'POST',
@@ -155,12 +159,8 @@ app.post('/collectie', async function (request, response) {
     // geef de body mee als JSON string
     body: JSON.stringify({
       // Dit is zodat we ons artikel straks weer terug kunnen vinden met ons filter
-      for: 'buurtcampus_collectie',
-      // En dit is ons eerdere formulierveld
-      cover: request.body.cover,
-      title: request.body.title,
-      date: request.body.date,
-      id: request.body.id
+      story: request.body.id,
+      user: 1
     }),
 
     // En vergeet deze HTTP headers niet: hiermee vertellen we de server dat we JSON doorsturen
@@ -168,8 +168,10 @@ app.post('/collectie', async function (request, response) {
     headers: {
       'Content-Type': 'application/json;charset=UTF-8'
     }
-  
   })
+
+  const fetchData = await fetchRes.json()
+  console.log('Directus response:', fetchData)
 
   // zonder redirect wordt in de browser niets geplaats, alleen in directus
   response.redirect('/collectie')
@@ -177,18 +179,17 @@ app.post('/collectie', async function (request, response) {
 })
 
 app.get('/collectie', async function (request, response) {
+  // Haal saved stories op voor user 1
+  const savedRes = await fetch('https://fdnd-agency.directus.app/items/buurtcampuskrant_saved_stories?filter[user][_eq]=1&fields=story')
+  const savedData = await savedRes.json()
 
-    // Haal eerst de opgeslagen story-IDs op
-    const savedRes = await fetch('https://fdnd-agency.directus.app/items/buurtcampuskrant_saved_stories?fields=story')
-    const savedData = await savedRes.json()
+  // Haal de story details op
+  const ids = savedData.data.map(item => item.story).join(',')
 
-    // Haal de bijbehorende story details op via de IDs
-    const ids = savedData.data.map(item => item.story).join(',')
+  const storiesRes = await fetch(`https://fdnd-agency.directus.app/items/buurtcampuskrant_stories?filter[id][_in]=${ids}&fields=id,title,date,cover.id`)
+  const storiesData = await storiesRes.json()
 
-    const storiesRes = await fetch(`https://fdnd-agency.directus.app/items/buurtcampuskrant_stories?filter[id][_in]=${ids}&fields=id,title,date,cover.id`)
-    const storiesData = await storiesRes.json()
-
-    response.render('collectie.liquid', { stories: storiesData.data })
+  response.render('collectie.liquid', { stories: storiesData.data })
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
