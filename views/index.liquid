@@ -35,6 +35,14 @@
                 <span>Datum onbekend</span>
             {% endif %}
         </time>
+
+        <form method="POST" action="/collectie">
+            <input type="hidden" name="id" value="{{ story.id }}">
+            <input type="hidden" name="cover" value="{{ story.cover.id }}">
+            <input type="hidden" name="title" value="{{ story.title }}">
+            <input type="hidden" name="date" value="{{ story.date }}">
+            <button type="submit">Bewaren</button>
+        </form>
     </section>
 {% endfor %}
 </article>
