@@ -233,10 +233,27 @@ li.sort-list:hover {
         display: flex;
         align-items: center;
         gap: 0.2em;
-        padding-block: 0.5em 2em;
+        padding-block: 0.5em 0.8em;
 
         svg {
             stroke: #545964;
+        }
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        color: white;
+        width: 100%;
+        margin-block: 0 4em;
+        padding: 0.3em;
+        border-radius: 28px;
+        cursor: pointer;
+
+        span {
+            color: white;
         }
     }
 }
