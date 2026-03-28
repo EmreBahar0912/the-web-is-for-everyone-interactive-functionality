@@ -4,6 +4,10 @@
 
 <h1>Collectie</h1>
 
+{% if success %}
+    <p class="success-message">✓ Artikel succesvol opgeslagen!</p>
+{% endif %}
+
 <section class="simple-articles-container">
 {% for story in stories %}
     <article class="simple-article">

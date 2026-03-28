@@ -147,7 +147,7 @@ app.get('/algemeen-nieuws-oud-nieuw', async function (request, response) {
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
 app.post('/collectie', async function (request, response) {
-  console.log('POST ontvangen:', request.body)
+  // console.log('POST ontvangen:', request.body)
 
   // Stuur een POST request naar de messages database
   // Een POST request bevat ook extra parameters, naast een URL
@@ -171,10 +171,10 @@ app.post('/collectie', async function (request, response) {
   })
 
   const fetchData = await fetchRes.json()
-  console.log('Directus response:', fetchData)
+  // console.log('Directus response:', fetchData)
 
   // zonder redirect wordt in de browser niets geplaats, alleen in directus
-  response.redirect('/collectie')
+  response.redirect('/collectie?success=true')
 
 })
 
@@ -189,7 +189,9 @@ app.get('/collectie', async function (request, response) {
   const storiesRes = await fetch(`https://fdnd-agency.directus.app/items/buurtcampuskrant_stories?filter[id][_in]=${ids}&fields=id,title,date,cover.id`)
   const storiesData = await storiesRes.json()
 
-  response.render('collectie.liquid', { stories: storiesData.data })
+  const success = request.query.success === 'true'
+
+  response.render('collectie.liquid', { stories: storiesData.data, success })
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
