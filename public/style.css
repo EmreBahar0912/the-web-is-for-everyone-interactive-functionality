@@ -262,6 +262,7 @@ li.sort-list:hover {
 section.simple-articles-container {
     display: grid;
     place-content: center;
+    gap: 0.5em;
     margin: 1em;
 
     article.simple-article {
