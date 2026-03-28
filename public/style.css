@@ -272,6 +272,7 @@ section.simple-articles-container {
 
         img {
             width: 115px;
+            min-width: 115px;
             object-fit: cover;
             border-radius: 28px 0 0 28px;
         }
