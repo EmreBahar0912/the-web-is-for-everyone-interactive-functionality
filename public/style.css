@@ -260,12 +260,13 @@ li.sort-list:hover {
 }
 
 section.simple-articles-container {
+    display: grid;
+    place-content: center;
     margin: 1em;
 
     article.simple-article {
         border: 2px solid black;
         display: flex;
-        width: fit-content;
         height: 8em;
         border-radius: 28px;
 
