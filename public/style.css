@@ -254,7 +254,26 @@ li.sort-list:hover {
 
         span {
             color: white;
+            font-weight: 600;
         }
+    }
+}
+
+article.simple-article {
+    border: 2px solid black;
+    display: flex;
+    width: fit-content;
+    height: 8em;
+    border-radius: 28px;
+
+    img {
+        width: 115px;
+        object-fit: cover;
+        border-radius: 28px 0 0 28px;
+    }
+
+    h2 {
+        font-size: 18px;
     }
 }
 
