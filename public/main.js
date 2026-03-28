@@ -21,3 +21,7 @@ details.addEventListener('toggle', () => {
         summaryContent.style.maxHeight = '0'
     }
 })
+
+if (window.location.search.includes('success=true')) {
+    window.history.replaceState({}, '', '/collectie');
+}
