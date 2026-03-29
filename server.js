@@ -218,7 +218,7 @@ app.post('/collectie', async function (request, response) {
 
 app.get('/collectie', async function (request, response) {
   // Ophalen saved stories van user 1 (ik)
-  const savedRes = await fetch('https://fdnd-agency.directus.app/items/buurtcampuskrant_saved_stories?filter[user][_eq]=1&fields=story')
+  const savedRes = await fetch('https://fdnd-agency.directus.app/items/buurtcampuskrant_saved_stories?filter[user][_eq]=1&fields=id,story')
   const savedData = await savedRes.json()
 
   // Ophalen van de details van story
@@ -237,7 +237,7 @@ app.get('/collectie', async function (request, response) {
   const success = request.query.success === 'true'
   const error = request.query.error === 'true'
 
-  response.render('collectie.liquid', { stories: storiesData.data, success, error })
+  response.render('collectie.liquid', { stories: stories, success, error })
 })
 
 app.post('/collectie/verwijder', async function (request, response) {
