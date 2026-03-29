@@ -283,8 +283,7 @@ li.sort-list:hover {
 
 section.error-state, section.empty-state {
     p {
-        display: flex;
-        justify-content: center;
+        text-align: center;
         color: #545964;
         margin: 0 1em 0 1em;
     }
