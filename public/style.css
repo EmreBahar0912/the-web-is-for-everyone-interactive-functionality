@@ -246,6 +246,12 @@ li.sort-list:hover {
         object-fit: cover;
     }
 
+    p.target {
+        font-size: 12px;
+        color: #D30910;
+        text-transform: uppercase;
+    }
+
     p, span {
         color: #545964;
         padding-block: 0.5em;
