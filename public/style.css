@@ -78,6 +78,12 @@ a, summary {
     }
 }
 
+div.sort-filter-container {
+    display: flex;
+    gap: 0.5em;
+    margin: 1em;
+}
+
 input {
     width: calc(100% - 2rem);
     margin-inline: 1rem;
@@ -87,7 +93,6 @@ input {
 details {
     position: relative;
     width: fit-content;
-    margin: 1em;
     border: 1px solid black;
 
     summary {
