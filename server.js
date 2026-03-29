@@ -71,7 +71,7 @@ app.get('/nieuw-west', async function (request, response) {
   const apiResponse = await fetch(apiURL)
   const apiResponseJSON = await apiResponse.json()
   // console.log(personResponseJSON.data)
-   response.render('nieuw-west.liquid', {stories: apiResponseJSON.data})
+   response.render('nieuw-west.liquid', {stories: apiResponseJSON.data, page: 'nieuwwest'})
 })
 
 app.get('/oost', async function (request, response) {
@@ -88,7 +88,7 @@ app.get('/oost', async function (request, response) {
   const apiResponse = await fetch(apiURL)
   const apiResponseJSON = await apiResponse.json()
   // console.log(personResponseJSON.data)
-   response.render('oost.liquid', {stories: apiResponseJSON.data})
+   response.render('oost.liquid', {stories: apiResponseJSON.data, page: 'oost'})
 })
 
 app.get('/zuidoost', async function (request, response) {
@@ -105,7 +105,7 @@ app.get('/zuidoost', async function (request, response) {
   const apiResponse = await fetch(apiURL)
   const apiResponseJSON = await apiResponse.json()
   // console.log(personResponseJSON.data)
-   response.render('zuidoost.liquid', {stories: apiResponseJSON.data})
+   response.render('zuidoost.liquid', {stories: apiResponseJSON.data, page: 'zuidoost'})
 })
 
 app.get('/zoeken', async function (request, response) {

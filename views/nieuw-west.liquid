@@ -1,4 +1,6 @@
-{% render 'partials/head.liquid' %}
+{% render 'partials/head.liquid', page: page %}
+
+{% render 'partials/menu.liquid' %}
 
 <h1>Nieuw-West</h1>
 <form action="/zoeken" method="GET">
