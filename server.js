@@ -208,7 +208,11 @@ app.post('/collectie', async function (request, response) {
   // console.log('Directus response:', fetchData)
 
   // zonder redirect wordt in de browser niets geplaats, alleen in directus
-  response.redirect('/collectie?success=true')
+  if (fetchData.errors) {
+        response.redirect('/collectie?error=true')
+    } else {
+        response.redirect('/collectie?success=true')
+    }
 
 })
 
@@ -231,8 +235,9 @@ app.get('/collectie', async function (request, response) {
     })
 
   const success = request.query.success === 'true'
+  const error = request.query.error === 'true'
 
-  response.render('collectie.liquid', { stories: storiesData.data, success })
+  response.render('collectie.liquid', { stories: storiesData.data, success, error })
 })
 
 app.post('/collectie/verwijder', async function (request, response) {

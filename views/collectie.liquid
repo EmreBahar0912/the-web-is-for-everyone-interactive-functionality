@@ -8,6 +8,13 @@
     <p class="success-message">✓ Artikel succesvol opgeslagen!</p>
 {% endif %}
 
+{% if error %}
+    <section class="error-state">
+        <h2>Helaas!</h2>
+        <p>Het bewaren van het artikel ging niet goed. Klik <a href="/">hier</a> om het nog een keer te proberen.</p>
+    </section>
+{% endif %}
+
 {% if stories.size == 0 %}
     <section class="empty-state">
         <h2>Je collectie is nog leeg</h2>
