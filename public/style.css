@@ -281,6 +281,15 @@ li.sort-list:hover {
     }
 }
 
+section.error-state, section.empty-state {
+    p {
+        display: flex;
+        justify-content: center;
+        color: #545964;
+        margin: 0 1em 0 1em;
+    }
+}
+
 .success-message {
     background-color: #e6f4ea;
     color: #265A43;
