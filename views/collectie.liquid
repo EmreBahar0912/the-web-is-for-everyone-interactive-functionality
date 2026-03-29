@@ -8,6 +8,12 @@
     <p class="success-message">✓ Artikel succesvol opgeslagen!</p>
 {% endif %}
 
+{% if stories.size == 0 %}
+    <section class="empty-state">
+        <h2>Je collectie is nog leeg</h2>
+        <p>Sla je favoriete artikelen op om ze later makkelijk terug te vinden.</p>
+    </section>
+{% else %}
 <section class="simple-articles-container">
 {% for story in stories %}
     <article class="simple-article">
@@ -36,3 +42,4 @@
     </article>
 {% endfor %}
 </section>
+{% endif %}
