@@ -29,6 +29,10 @@
                 </div>
             </time>
         </div>
+        {% comment %} <form method="POST" action="/collectie/verwijder">
+            <input type="hidden" name="savedId" value="{{ story.savedId }}">
+            <button type="submit">Verwijder</button> {% endcomment %}
+        </form>
     </article>
 {% endfor %}
 </section>

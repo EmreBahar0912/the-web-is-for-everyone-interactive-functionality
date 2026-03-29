@@ -213,19 +213,38 @@ app.post('/collectie', async function (request, response) {
 })
 
 app.get('/collectie', async function (request, response) {
-  // Haal saved stories op voor user 1
+  // Ophalen saved stories van user 1 (ik)
   const savedRes = await fetch('https://fdnd-agency.directus.app/items/buurtcampuskrant_saved_stories?filter[user][_eq]=1&fields=story')
   const savedData = await savedRes.json()
 
-  // Haal de story details op
+  // Ophalen van de details van story
   const ids = savedData.data.map(item => item.story).join(',')
 
   const storiesRes = await fetch(`https://fdnd-agency.directus.app/items/buurtcampuskrant_stories?filter[id][_in]=${ids}&fields=id,title,date,cover.id`)
   const storiesData = await storiesRes.json()
 
+  // Koppel het saved record ID aan elke story
+    const stories = storiesData.data.map(story => {
+        const saved = savedData.data.find(s => s.story === story.id)
+        console.log('story.id:', story.id, 'saved:', saved)
+        return { ...story, savedId: saved.id }
+    })
+
   const success = request.query.success === 'true'
 
   response.render('collectie.liquid', { stories: storiesData.data, success })
+})
+
+app.post('/collectie/verwijder', async function (request, response) {
+    const savedId = request.body.savedId
+    console.log('savedId:', savedId)
+
+    const deleteRes = await fetch(`https://fdnd-agency.directus.app/items/buurtcampuskrant_saved_stories/${savedId}`, {
+        method: 'DELETE'
+    })
+    console.log('delete status:', deleteRes.status)
+
+    response.redirect('/collectie')
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
