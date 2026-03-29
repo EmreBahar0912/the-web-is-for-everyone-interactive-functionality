@@ -1,6 +1,11 @@
 * {
     margin: 0;
     box-sizing: border-box;
+
+    &::selection {
+        color: white;
+        background-color: #323568;
+    }
 }
 
 @font-face {
