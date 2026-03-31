@@ -1,8 +1,8 @@
 const menuOpen = document.querySelector('.menu-open')
 const menuClose = document.querySelector('.menu-close')
 const menu = document.querySelector('.menu')
-const details = document.querySelector('details')
-const summaryContent = details.querySelector('ul')
+// const details = document.querySelector('details')
+// const summaryContent = details.querySelector('ul')
 
 menuOpen.addEventListener('click', () => {
     menu.classList.add('is-open')
@@ -14,13 +14,13 @@ menuClose.addEventListener('click', () => {
     document.body.style.overflow = ''
 })
 
-details.addEventListener('toggle', () => {
-    if (details.open) {
-        summaryContent.style.maxHeight = summaryContent.scrollHeight + 'px'
-    } else {
-        summaryContent.style.maxHeight = '0'
-    }
-})
+// details.addEventListener('toggle', () => {
+//     if (details.open) {
+//         summaryContent.style.maxHeight = summaryContent.scrollHeight + 'px'
+//     } else {
+//         summaryContent.style.maxHeight = '0'
+//     }
+// })
 
 if (window.location.search.includes('success=true')) {
     window.history.replaceState({}, '', '/collectie');

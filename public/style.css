@@ -8,6 +8,10 @@
     }
 }
 
+:root {
+    interpolate-size: allow-keywords;
+}
+
 @font-face {
     font-family: Arial-reg;
     src: url(/arial.ttf);
@@ -135,7 +139,11 @@ li.sort-list:hover {
     place-content: center; */
     display: flex;
     transform: translateX(-100%);  /* verborgen links buiten scherm */
-    transition: transform 0.3s ease;
+    
+    @media (prefers-reduced-motion: no-preference) {
+        transition: transform 0.3s;
+    }
+
     align-items: center;
     justify-content: center;
     position: fixed;
@@ -176,6 +184,22 @@ li.sort-list:hover {
         details {
             margin: 0;
             border: none;
+            overflow: hidden;
+
+            &::details-content {
+                background-color: red;
+                block-size: 0;
+
+                @media (prefers-reduced-motion: no-preference) {
+                    transition: 
+                        block-size .3s,
+                        content-visibility .3s allow-discrete;
+                }
+            }
+
+            &[open]::details-content {
+                block-size: auto;
+            }
 
             summary {
                 font-size: 2em;
@@ -199,10 +223,11 @@ li.sort-list:hover {
                 }
             }
 
+
             ul {
                 padding: 0;
-                max-height: 0;
-                overflow: hidden;
+                /* max-height: 0; */
+                /* overflow: hidden; */
                 transition: max-height 0.3s ease;
 
                 li {
