@@ -10,11 +10,20 @@
 
 :root {
     interpolate-size: allow-keywords;
+    color-scheme: light dark;
 }
 
 @font-face {
     font-family: Arial-reg;
     src: url(/arial.ttf);
+}
+
+body {
+    background-color: light-dark(#fff, #1E1E1E);
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #1E1E1E;
+    }
 }
 
 body.nieuwwest {
@@ -58,6 +67,13 @@ a, summary {
     z-index: 10;
     background-color: white;
     box-shadow: 0 6px 4px rgba(0, 0, 0, 0.1);
+    background-color: light-dark(#fff, #1E1E1E);
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #1E1E1E;
+        box-shadow: none;
+        border-bottom: 1px solid #3A3A3A;
+    }
 
     a {
         all: unset;
@@ -98,6 +114,10 @@ details {
     position: relative;
     width: fit-content;
     border: 1px solid black;
+
+    @media (prefers-color-scheme: dark) {
+        border: 1px solid white;
+    }
 
     summary {
         display: flex;
@@ -187,7 +207,6 @@ li.sort-list:hover {
             overflow: hidden;
 
             &::details-content {
-                background-color: red;
                 block-size: 0;
 
                 @media (prefers-reduced-motion: no-preference) {
@@ -278,6 +297,11 @@ li.sort-list:hover {
         font-size: 12px;
         color: #D30910;
         text-transform: uppercase;
+        color: light-dark(#D30910, #FF4D4D);
+
+        @media (prefers-color-scheme: dark) {
+            color: #FF4D4D;
+        }
     }
 
     p, span {
@@ -403,6 +427,11 @@ footer {
     color: white;
     padding: 1em;
     gap: 1em;
+    background-color: light-dark(black, #141414);
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #141414;
+    }
 
     div {
         place-self: center;
