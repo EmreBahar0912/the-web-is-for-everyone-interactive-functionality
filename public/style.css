@@ -381,10 +381,10 @@ li.sort-list:hover {
     p, span {
         color: #545964;
         padding-block: 0.5em;
-        color: light-dark(#545964, #A0A5B0);
+        color: light-dark(#545964, #A6ABB5);
 
         @media (prefers-color-scheme: dark) {
-            color: #A0A5B0;
+            color: #A6ABB5;
         }
     }
 
@@ -398,7 +398,7 @@ li.sort-list:hover {
             stroke: #545964;
 
             @media (prefers-color-scheme: dark) {
-                stroke: #A0A5B0;
+                stroke: #A6ABB5;
             }
         }
     }
@@ -498,10 +498,10 @@ section.simple-articles-container {
 
                 svg {
                     color: #545964;
-                    color: light-dark(#545964, #A0A5B0);
+                    color: light-dark(#545964, #A6ABB5);
 
                     @media (prefers-color-scheme: dark) {
-                        color: #A0A5B0;
+                        color: #A6ABB5;
                     }
                 }
             }
