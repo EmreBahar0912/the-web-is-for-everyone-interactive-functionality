@@ -41,6 +41,12 @@ body.zuidoost {
 h1, h2, h3, h4, h5, h6 {
     font-family: Arial-reg;
     line-height: 1.2;
+    color: black;
+    color: light-dark(black, #E8E8E8);
+
+    @media (prefers-color-scheme: dark) {
+        color: #E8E8E8;
+    }
 }
 
 h1 {
@@ -95,6 +101,11 @@ a, summary {
 
     svg {
         align-self: center;
+        stroke: black;
+
+        @media (prefers-color-scheme: dark) {
+            stroke: #E8E8E8;
+        }
     }
 }
 
@@ -116,13 +127,20 @@ details {
     border: 1px solid black;
 
     @media (prefers-color-scheme: dark) {
-        border: 1px solid white;
+        border: 1px solid #E8E8E8;
     }
 
     summary {
         display: flex;
         cursor: pointer;
         list-style: none;
+        color: black;
+        color: light-dark(black, #E8E8E8);
+
+        @media (prefers-color-scheme: dark) {
+            color: #E8E8E8;
+        }
+
         padding: 0.2rem;
         gap: 0.5em;
 
@@ -138,6 +156,12 @@ details {
         list-style: none;
         width: 100%;
         padding: 0.3em 0;
+        background: light-dark(white, #1E1E1E);
+
+        @media (prefers-color-scheme: dark) {
+            background: #1E1E1E;
+            border: 1px solid #E8E8E8;
+        }
 
         li {
             padding: 0.3em;
@@ -145,6 +169,10 @@ details {
             a {
                 text-decoration: none;
                 color: inherit;
+
+                @media (prefers-color-scheme: dark) {
+                    color: #E8E8E8;
+                }
             }
         }
     }
@@ -158,7 +186,7 @@ li.sort-list:hover {
     /* display: grid;
     place-content: center; */
     display: flex;
-    transform: translateX(-100%);  /* verborgen links buiten scherm */
+    transform: translateX(-100%);
     
     @media (prefers-reduced-motion: no-preference) {
         transition: transform 0.3s;
@@ -174,6 +202,24 @@ li.sort-list:hover {
 
     &.is-open {
         transform: translateX(0);
+
+        @media (prefers-color-scheme: dark) {
+            background-color: #1E1E1E;
+        }
+
+        li {
+            a {
+                @media (prefers-color-scheme: dark) {
+                    color: #E8E8E8;
+                }
+
+                &:hover {
+                    @media (prefers-color-scheme: dark) {
+                        color: #CFCFCF;
+                    }
+                }
+            }
+        }
     }
 
     .menu-close {
@@ -185,11 +231,20 @@ li.sort-list:hover {
         width: 2.5rem;
         height: 2.5rem;
         cursor: pointer;
+        background-color: light-dark(black, #E8E8E8);
+
+        @media (prefers-color-scheme: dark) {
+            background-color: #E8E8E8;
+        }
 
         svg {
             display: flex;
             stroke: white;
             margin: 0 auto;
+
+            @media (prefers-color-scheme: dark) {
+                stroke: black;
+            }
         }
     }
 
@@ -226,8 +281,16 @@ li.sort-list:hover {
                 color: #101828;
                 transition: color 0.2s ease;
 
+                @media (prefers-color-scheme: dark) {
+                    color: #E8E8E8;
+                }
+
                 &:hover {
                     color: #344054;
+
+                    @media (prefers-color-scheme: dark) {
+                        color: #CFCFCF;
+                    }
                 }
 
                 svg {
@@ -236,12 +299,19 @@ li.sort-list:hover {
                     stroke: #101828;
                     transition: color 0.2s ease;
 
+                    @media (prefers-color-scheme: dark) {
+                        stroke: #E8E8E8;
+                    }
+
                     &:hover {
                         color: #344054;
+
+                        @media (prefers-color-scheme: dark) {
+                            stroke: #CFCFCF;
+                        }
                     }
                 }
             }
-
 
             ul {
                 padding: 0;
@@ -256,6 +326,10 @@ li.sort-list:hover {
 
                         &:hover {
                             color: #697586;
+
+                            @media (prefers-color-scheme: dark) {
+                                color: #CFCFCF;
+                            }
                         }
                     }
                 }
@@ -307,6 +381,11 @@ li.sort-list:hover {
     p, span {
         color: #545964;
         padding-block: 0.5em;
+        color: light-dark(#545964, #A0A5B0);
+
+        @media (prefers-color-scheme: dark) {
+            color: #A0A5B0;
+        }
     }
 
     time {
@@ -317,6 +396,10 @@ li.sort-list:hover {
 
         svg {
             stroke: #545964;
+
+            @media (prefers-color-scheme: dark) {
+                stroke: #A0A5B0;
+            }
         }
     }
 
@@ -415,6 +498,11 @@ section.simple-articles-container {
 
                 svg {
                     color: #545964;
+                    color: light-dark(#545964, #A0A5B0);
+
+                    @media (prefers-color-scheme: dark) {
+                        color: #A0A5B0;
+                    }
                 }
             }
         }
@@ -428,9 +516,20 @@ footer {
     padding: 1em;
     gap: 1em;
     background-color: light-dark(black, #141414);
+    color: light-dark(white, #E8E8E8);
 
     @media (prefers-color-scheme: dark) {
         background-color: #141414;
+        color: #E8E8E8;
+    }
+
+    h2 {
+        color: white;
+        color: light-dark(white, #E8E8E8);
+
+        @media (prefers-color-scheme: dark) {
+            color: #E8E8E8;
+        }
     }
 
     div {
