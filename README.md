@@ -66,6 +66,10 @@ Stap 3) Open de Terminal in VSCodium, Voer in de terminal het commando npm insta
 Stap 4 ) Na de installatie is de map node_modules aangemaakt, en gevuld met allerlei packages. Start de website door in de terminal het comando npm start uit te voeren. Als het goed is, komt hier een melding te staan over het opstarten van de server: Application started on http://localhost:8000 — Open deze URL in je browser.
 
 ## Bronnen
+- [Content-visibility](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/content-visibility)
+- [Transition-behavior](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/transition-behavior)
+- [Interpolate-size](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/interpolate-size)
+- [Window: history property](https://developer.mozilla.org/en-US/docs/Web/API/Window/history)
 
 ## Licentie
 
