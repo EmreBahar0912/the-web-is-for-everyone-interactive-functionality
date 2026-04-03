@@ -53,6 +53,7 @@ https://github.com/EmreBahar0912/the-web-is-for-everyone-interactive-functionali
 Het mooie aan Progressive Enhancement is dat als de nieuwe technieken die hier gebruikt worden niet worden ondersteund door browsers, dat er dan een fallback is. Want het `<detail>` element is al een dropdown opzich, dus gebruikers kunnen er dan nog steeds gebruik van maken.
 
 Progressive Enhancement heb ik ook toegepast tijdens het maken van de darkmode versie van de website. De fallback is de standaard `color`/`background-color` bijvoorbeeld en `@media (prefers-color-scheme: dark)`, deze technieken zijn Widely Available. De nieuwe techniek die ik hier heb toegepast is `light-dark` (Newly Available). Als een browser-engine `light-dark` wel ondersteund dan gebruikt hij die en als het niet wordt ondersteund dan worden `color`/`background-color` en `@media (prefers-color-scheme: dark)` toegepast.
+https://github.com/EmreBahar0912/the-web-is-for-everyone-interactive-functionality/blob/999ebcc0f9a308b93bbb87374c7114e880ccec21/public/style.css#L11-L14
 https://github.com/EmreBahar0912/the-web-is-for-everyone-interactive-functionality/blob/999ebcc0f9a308b93bbb87374c7114e880ccec21/public/style.css#L152-L164
 
 <img width="366" height="520" alt="image" src="https://github.com/user-attachments/assets/87a687c2-4fdc-4cf7-ba54-b8cfb50d769f" />
