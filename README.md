@@ -1,9 +1,12 @@
-# Interactive Functionality
+# Buurtcampuskrant - Challenge: Data posten & Progressive Enhancement
+Tijdens deze sprint hebben we de opdracht gekregen om een POST interactie te maken en Progressive Enhancement toe te passen om als componenten te gebruiken.
 
-Ontwerp en maak voor een opdrachtgever een interactieve toepassing die voor iedereen toegankelijk is
+**Wat is de Buurtcampuskrant?**
+De buurtcampuskrant is een krant bedoeld voor de districten; Nieuw-West, Oost & Zuidoost in Amsterdam. Met drie Buurtcampussen in verschillende stadsdelen richten zij op actuele uitdagingen in de wijken van Amsterdam.
 
-De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/the-web-is-for-everyone-interactive-functionality/blob/main/docs/INSTRUCTIONS.md)
-
+De Buurtcampus heeft vestigingen in OBA Geuzenveld (Nieuw-West), OBA Linnaeus (Oost) en OBA Ganzenhoef (Zuidoost).
+Dit zijn toegankelijke plekken waar studenten projecten ontwikkelen en uitvoeren, waar activiteiten plaatsvinden voor de buurtbewoners en waar onderzoekers aansluiting vinden bij hun wijkgerichte vragen. 
+Het is een laagdrempelige plek waar de HvA en de wijk elkaar ontmoeten en waar opgedane kennis wordt teruggekoppeld aan de buurt.
 
 ## Inhoudsopgave
 
