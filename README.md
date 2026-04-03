@@ -2,6 +2,7 @@
 Tijdens deze sprint hebben we de opdracht gekregen om een POST interactie te maken en Progressive Enhancement toe te passen om als componenten te gebruiken.
 
 **Wat is de Buurtcampuskrant?**
+
 De buurtcampuskrant is een krant bedoeld voor de districten; Nieuw-West, Oost & Zuidoost in Amsterdam. Met drie Buurtcampussen in verschillende stadsdelen richten zij op actuele uitdagingen in de wijken van Amsterdam.
 
 De Buurtcampus heeft vestigingen in OBA Geuzenveld (Nieuw-West), OBA Linnaeus (Oost) en OBA Ganzenhoef (Zuidoost).
