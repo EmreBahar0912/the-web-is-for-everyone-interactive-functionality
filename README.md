@@ -36,6 +36,23 @@ Ik heb ervoor gekozen om onder elk artikel een bewaar-knop toe te voegen. Hierme
 ## Kenmerken
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framework of library gebruikt? -->
 
+Tijdens deze sprint heb ik ook de focus gelegd op Progressive Enhancement. Deze heb ik toegepast op de dropdown in het hamburger menu & op darkmode.
+
+Ik heb gebruik gemaakt van een `<detail>` element met een `<summary>` erbij voor mijn dropdown in het hamburger menu. Standaard in HTML is dit al een dropdown, maar zonder styling en een basic animatie die er niet uitzien.
+https://github.com/EmreBahar0912/the-web-is-for-everyone-interactive-functionality/blob/999ebcc0f9a308b93bbb87374c7114e880ccec21/views/partials/menu.liquid#L9-L16
+
+Dit was stap 1 van Progressive Enhancement, stap 2 bestaat uit het stylen met CSS. Dat heb ik gedaan door toegankelijk CSS properties te gebruiken om een styling te geven aan de dropdown.
+De laatste stap bestaat uit het enhancen (verbeteren) van de functionaliteit, zodat het toegankelijk is voor (bijna) iedereen. Het probleem bij mijn dropdown in het hamburger menu was dat de animatie ervan het maar een keer deed en daarna niet meer. Dit probleem heb ik opgelost door gebruik te maken van nieuwe technieken, namelijk `interpolate-size: allow-keywords`, `content-visibility` en `transition-behavior`. Deze technieken zijn nu nog Newly Available (behalve `interpolate-size: allow-keywords`), dit betekent dat het breed wordt ondersteund door grote browser-engines. Deze drie technieken die ik heb benoemd, heb ik dus toegepast om de animatie van de dropdown te verbeteren. Ook heb ik `@media (prefers-reduced-motion: no preference)` toegevoegd voor de gebruikers die wel een animatie willen. Degenen die dat niet willen krijgen dus geen animatie.
+https://github.com/EmreBahar0912/the-web-is-for-everyone-interactive-functionality/blob/999ebcc0f9a308b93bbb87374c7114e880ccec21/public/style.css#L11-L12
+https://github.com/EmreBahar0912/the-web-is-for-everyone-interactive-functionality/blob/999ebcc0f9a308b93bbb87374c7114e880ccec21/public/style.css#L267-L271
+
+Het mooie aan Progressive Enhancement is dat als de nieuwe technieken die hier gebruikt worden niet worden ondersteund door browsers, dat er dan een fallback is. Want het `<detail>` element is al een dropdown opzich, dus gebruikers kunnen er dan nog steeds gebruik van maken.
+
+Progressive Enhancement heb ik ook toegepast tijdens het maken van de darkmode versie van de website. De fallback is de standaard `color`/`background-color` bijvoorbeeld en `@media (prefers-color-scheme: dark)`, deze technieken zijn Widely Available. De nieuwe techniek die ik hier heb toegepast is `light-dark` (Newly Available). Als een browser-engine `light-dark` wel ondersteund dan gebruikt hij die en als het niet wordt ondersteund dan worden `color`/`background-color` en `@media (prefers-color-scheme: dark)` toegepast.
+https://github.com/EmreBahar0912/the-web-is-for-everyone-interactive-functionality/blob/999ebcc0f9a308b93bbb87374c7114e880ccec21/public/style.css#L152-L164
+
+<img width="366" height="520" alt="image" src="https://github.com/user-attachments/assets/87a687c2-4fdc-4cf7-ba54-b8cfb50d769f" />
+
 ## Installatie
 <!-- Bij Installatie staat hoe een andere developer aan jouw repo kan werken -->
 
