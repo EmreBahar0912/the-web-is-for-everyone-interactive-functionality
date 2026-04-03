@@ -55,7 +55,15 @@ https://github.com/EmreBahar0912/the-web-is-for-everyone-interactive-functionali
 
 ## Installatie
 <!-- Bij Installatie staat hoe een andere developer aan jouw repo kan werken -->
+Volg deze stappen om de development omgeving in te richten om aan deze repository te kunnen werken:
 
+Stap 1) Installeer de [NodeJS ontwikkelomgeving](https://nodejs.org/en/download). Kies voor NodeJS 24.13.0 (LTS, long-term support), download het installatiebestand en doorloop het installatieproces.
+
+Stap 2) Fork deze repository, clone deze op jouw computer en open het in VSCodium/ een code editor.
+
+Stap 3) Open de Terminal in VSCodium, Voer in de terminal het commando npm install uit door het in te typen en op enter te drukken.
+
+Stap 4 ) Na de installatie is de map node_modules aangemaakt, en gevuld met allerlei packages. Start de website door in de terminal het comando npm start uit te voeren. Als het goed is, komt hier een melding te staan over het opstarten van de server: Application started on http://localhost:8000 — Open deze URL in je browser.
 
 ## Bronnen
 
